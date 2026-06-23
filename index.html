@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С ДНЁМ РОЖДЕНИЯ!</title>
+    <style>
+        body{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bolder;
+        }
+        .fon{
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: -1000;
+            top: 0;
+            left: 0;
+        }
+        .ImportantInformarion{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            justify-content: center;  
+            align-items: center;    
+        }
+        .text{
+             color: azure;
+            font-size: 30px;
+            transition-duration: 0.3s;
+            cursor: pointer;
+        }
+        .text:hover{
+            color: rgb(255, 230, 0);
+        }
+        .firstimg{
+            position: absolute;
+            width: 40%;
+            opacity: 0;
+            display: none;
+            border-radius: 10%;
+            transition-duration: 0.3s;
+        }
+        .firstimg:hover{
+            background-color: rgb(240, 248, 255,0.5);
+        }
+        .prizimg{
+             position: absolute;
+            width: 40%;
+            opacity: 0;
+            display: none;
+            border-radius: 10%;
+            transition-duration: 0.1s;
+            }
+        .prizimg:hover{
+            background:  rgb(240, 248, 255,0.5);
+        }
+        .byketimg{
+            position: absolute;
+            width: 40%;
+            opacity: 0;
+            display: none;
+            border-radius: 10%;
+            transition-duration: 0.3s;
+        }
+        .list{
+            position: absolute;
+            width: 40%;
+            opacity: 0;
+            display: none;
+        }
+        .smileimg{
+            position: absolute;
+            width: 40%;
+            opacity: 0;
+            display: none;
+            border-radius: 10%;
+            transition-duration: 0.3s;
+        }
+        @media(max-width: 767px){
+            .text{
+                font-size: 20px;
+            }
+            .firsttext{
+                width: 70%;
+                text-align: center;
+            }
+            .list{
+                width: 80%;
+                text-align: center;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="fon"></div>
+    <div class="ImportantInformarion">
+        <p class="text firsttext">ДЛЯ ПРОДОЛЖЕНИЯ НАЖМИ НА ТЕКСТ, А ПОТОМ НА ИКОНКИ</p>
+        <img src="her.webp" class="firstimg">
+        <img src="priz.png" class="prizimg">
+        <img src="byket.png" class="byketimg">
+        <p class="text list">Даша, поздравляю тебя с таким замечательным праздником, с твои совершенолетием! Хочу пожелать тебе счастья, успехов, хороших и верных друзей, чтобы в учёбе всё получалось и ты получала только хорошие отметки. Также хочу пожелать тебе самое важное — крепкого здоровья. P.S ещё желаю хорошо закрыть сессию))</p>
+        <img src="smile.png" class="smileimg">
+    </div>
+    <script>
+        let kolvo=0
+        const text1=document.querySelector(".firsttext")
+        const firstimg=document.querySelector(".firstimg")
+        const prizimg=document.querySelector(".prizimg")
+        const byketimg=document.querySelector(".byketimg")
+        const list=document.querySelector(".list")
+        const smileimg=document.querySelector(".smileimg")
+        text1.addEventListener("click",function(event){
+            text1.style.opacity="0"
+            setTimeout(()=>{text1.style.display="none"},400)
+            setTimeout(()=>{firstimg.style.display="block"; firstimg.style.opacity="1"},500)
+        })
+        firstimg.addEventListener("click",function(event){
+            firstimg.style.opacity="0"
+            setTimeout(()=>{firstimg.style.display="none"},400)
+            setTimeout(()=>{prizimg.style.display="block"; prizimg.style.opacity="1";alert("НАЖМИ НА ПОДАРОК 18 РАЗ")},500)
+        })
+        prizimg.addEventListener("click",function(event){
+            kolvo+=1
+            if(kolvo===4){
+                prizimg.style.width="42%"
+            }
+            else if(kolvo===8){
+                prizimg.style.width="44%"
+            }
+            else if(kolvo===12){
+                prizimg.style.width="48%"
+            }
+            else if(kolvo===16){
+                prizimg.style.width="52%"
+            }
+            else if(kolvo===18){
+                prizimg.style.opacity="0"
+                setTimeout(()=>{prizimg.style.display="none"},400)
+                setTimeout(()=>{byketimg.style.display="block"; byketimg.style.opacity="1"},500)
+                setTimeout(()=>{alert("ДЛЯ ПРОДОЛЖЕНИЯ НАЖМИ НА БУКЕТ")},3000)
+            }})
+            byketimg.addEventListener("click",function(event){
+                byketimg.style.opacity="0"
+                setTimeout(()=>{byketimg.style.display="none"},400)
+                setTimeout(()=>{list.style.display="block"; list.style.opacity="1"},500)
+                setTimeout(()=>{alert("ДЛЯ ПРОДОЛЖЕНИЯ НАЖМИ НА ТЕКСТ")},10000)
+        })
+         list.addEventListener("click",function(event){
+                list.style.opacity="0"
+                setTimeout(()=>{list.style.display="none"},400)
+                setTimeout(()=>{smileimg.style.display="block"; smileimg.style.opacity="1"},500)})
+    </script>
+</body>
+</html>
